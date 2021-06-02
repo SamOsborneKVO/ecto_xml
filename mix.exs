@@ -7,6 +7,7 @@ defmodule EctoXml.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
+      consolidate_protocols: Mix.env() != :test,
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
         coveralls: :test,
