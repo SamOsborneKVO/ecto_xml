@@ -7,6 +7,13 @@ defmodule EctoXml.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ],
       description: description(),
       package: package(),
       deps: deps()
@@ -39,9 +46,11 @@ defmodule EctoXml.MixProject do
   defp deps do
     [
       {:xml_builder, "~> 2.1"},
-      # Dev
+      # Dev & Test
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-      {:phoenix_ecto, "~> 4.1", only: [:dev, :test]}
+      {:phoenix_ecto, "~> 4.1", only: [:dev, :test]},
+      # Test
+      {:excoveralls, "~> 0.14.0", only: :test}
     ]
   end
 end
