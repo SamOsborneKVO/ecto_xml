@@ -39,6 +39,8 @@ defmodule EctoXml.MixProject do
   defp deps do
     [
       {:xml_builder, "~> 2.1"},
+      # Dev
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:phoenix_ecto, "~> 4.1", only: [:dev, :test]}
     ]
   end
