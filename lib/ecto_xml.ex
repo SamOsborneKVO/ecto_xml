@@ -45,7 +45,7 @@ defmodule EctoXml do
     end
   end
   ```
-  s
+
   The following:
 
   ```elixir
