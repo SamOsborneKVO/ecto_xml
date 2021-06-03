@@ -29,7 +29,7 @@ by adding `ecto_xml` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:ecto_xml, "~> 0.1.0"}
+    {:ecto_xml, "~> 1.0.0"}
   ]
 end
 ```
