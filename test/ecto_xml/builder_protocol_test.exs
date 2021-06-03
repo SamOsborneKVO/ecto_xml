@@ -60,7 +60,7 @@ defmodule Test.BuilderProtocol do
     test "should allow overriding field names (the list name and singular nested item names)" do
       xml =
         %Person{name: "John Doe"}
-        |> EctoXml.to_xml(:person)
+        |> EctoXml.to_xml(:person, format: :none)
 
       assert xml ==
                ~s(<?xml version=\"1.0\" encoding=\"UTF-8\"?><person><custom_element_name>John Doe</custom_element_name></person>)
@@ -75,7 +75,7 @@ defmodule Test.BuilderProtocol do
             %Person{name: "José Valim"}
           ]
         }
-        |> EctoXml.to_xml(:person)
+        |> EctoXml.to_xml(:person, format: :none)
 
       assert xml ==
                ~s(<?xml version=\"1.0\" encoding=\"UTF-8\"?><person><name>John Doe</name><custom_array_name><custom_array_item_name><name>Bob the builder</name></custom_array_item_name><custom_array_item_name><name>José Valim</name></custom_array_item_name></custom_array_name></person>)

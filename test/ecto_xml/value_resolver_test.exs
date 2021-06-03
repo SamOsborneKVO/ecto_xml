@@ -17,7 +17,7 @@ defmodule Test.ValueResolver do
     test "should allow overriding the value resolver to change element values" do
       xml =
         %{tuple_field: {:ok, "foo bar"}}
-        |> EctoXml.to_xml()
+        |> EctoXml.to_partial_xml(format: :none)
 
       assert xml == "<tuple_field>42</tuple_field>"
     end

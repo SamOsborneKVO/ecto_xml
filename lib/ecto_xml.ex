@@ -19,7 +19,7 @@ defmodule EctoXml do
   The following:
 
   ```elixir
-  %{foo: "bar"} |> EctoXml.to_xml(:root)
+  %{foo: "bar"} |> EctoXml.to_xml(:root, format: :none)
   ```
 
   Results in:
@@ -45,11 +45,11 @@ defmodule EctoXml do
     end
   end
   ```
-
+  s
   The following:
 
   ```elixir
-  %Person{name: "Foo Bar"} |> EctoXml.to_xml(:person)
+  %Person{name: "Foo Bar"} |> EctoXml.to_xml(:person, format: :none)
   ```
 
   Results in:
@@ -86,7 +86,7 @@ defmodule EctoXml do
   The following:
 
   ```elixir
-  %Person{name: "Foo Bar"} |> EctoXml.to_xml(:person)
+  %Person{name: "Foo Bar"} |> EctoXml.to_xml(:person, format: :none)
   ```
 
   Results in:
@@ -95,18 +95,18 @@ defmodule EctoXml do
   <?xml version=\"1.0\" encoding=\"UTF-8\"?><person><custom_element_name>Foo Bar</custom_element_name></person>
   ```
   """
-  @spec to_xml(map, atom) :: String.t()
-  def to_xml(data, document_name) do
+  @spec to_xml(map, atom, list) :: String.t()
+  def to_xml(data, document_name, options \\ []) do
     elements = generate_xml_elements(data)
 
     document(document_name, elements)
-    |> XmlBuilder.generate(format: :none)
+    |> XmlBuilder.generate(options)
   end
 
   @doc """
   Generates a partial XML element based on one ecto schema or map.
 
-  The behaviour is idential to to_xml/2, except that it does not generate the XML document (e.g. <?xml version=X encoding=Y?>)
+  The behaviour is idential to to_xml/3, except that it does not generate the XML document (e.g. <?xml version=X encoding=Y?>)
   with a root element name (e.g. <root> content </root>), generating only the partial element instead.
 
   ## Example
@@ -114,7 +114,7 @@ defmodule EctoXml do
   The following:
 
   ```elixir
-  %{foo: "bar"} |> EctoXml.to_xml()
+  %{foo: "bar"} |> EctoXml.to_partial_xml()
   ```
 
   Results in:
@@ -123,12 +123,12 @@ defmodule EctoXml do
   <foo>bar</foo>
   ```
 
-  Check to_xml/1 for more examples and use cases.
+  Check to_xml/3 for more examples and use cases.
   """
-  @spec to_xml(map) :: String.t()
-  def to_xml(data) do
+  @spec to_partial_xml(map, list) :: String.t()
+  def to_partial_xml(data, options \\ []) do
     generate_xml_elements(data)
-    |> XmlBuilder.generate(format: :none)
+    |> XmlBuilder.generate(options)
   end
 
   @spec generate_xml_elements(map) :: list
