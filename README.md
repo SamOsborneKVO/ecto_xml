@@ -6,6 +6,7 @@ EctoXml
 [![Hex Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/ecto_xml/)
 [![Total Download](https://img.shields.io/hexpm/dt/ecto_xml.svg)](https://hex.pm/packages/ecto_xml)
 [![License](https://img.shields.io/hexpm/l/ecto_xml.svg)](https://github.com/pedro-lb/ecto_xml/blob/master/LICENSE)
+[![codecov](https://codecov.io/gh/pedro-lb/ecto_xml/branch/master/graph/badge.svg)](https://codecov.io/gh/pedro-lb/ecto_xml)
 [![Last Updated](https://img.shields.io/github/last-commit/pedro-lb/ecto_xml.svg)](https://github.com/pedro-lb/ecto_xml/commits/master)
 
 ## Overview
