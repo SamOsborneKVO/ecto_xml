@@ -24,7 +24,7 @@ defmodule EctoXml.MixProject do
 
   defp description do
     """
-    Library for manipulating and validating IBAN account numbers.
+    EctoXml provides a way to easily generate XML documents from Ecto Schemas and maps.
     """
   end
 
