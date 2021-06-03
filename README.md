@@ -93,17 +93,17 @@ Results in:
 We can also use any ecto schema (embedded or not) to generate our XML documents.
 
 ```elixir
-  defmodule Person do
-    use Ecto.Schema
+defmodule Person do
+  use Ecto.Schema
 
-    @primary_key false
+  @primary_key false
 
-    embedded_schema do
-      field :name, :string
-    end
+  embedded_schema do
+    field :name, :string
   end
+end
 
-  %Person{name: "Foo Bar"} |> EctoXml.to_xml(:person)
+%Person{name: "Foo Bar"} |> EctoXml.to_xml(:person)
 ```
 
 Results in:
@@ -128,46 +128,46 @@ it will be applied to the array items, allowing you to customize each item name.
 element name, we must use `map_array_names`.
 
 ```elixir
-  defmodule Post do
-    use Ecto.Schema
+defmodule Post do
+  use Ecto.Schema
 
-    @primary_key false
+  @primary_key false
 
-    @derive {
-      EctoXml.Builder,
-      map_field_names: %{
-        :title => :custom_title,
-        :comments => :a_comment
-      },
-      map_array_names: %{
-        :comments => :custom_comments
-      }
+  @derive {
+    EctoXml.Builder,
+    map_field_names: %{
+      :title => :custom_title,
+      :comments => :a_comment
+    },
+    map_array_names: %{
+      :comments => :custom_comments
     }
-
-    embedded_schema do
-      field :title, :string
-      embeds_many :comments, Comment
-    end
-  end
-
-  defmodule Comment do
-    use Ecto.Schema
-
-    @primary_key false
-
-    embedded_schema do
-      field :content, :string
-    end
-  end
-
-  %Post{
-    title: "Foo Bar",
-    comments: [
-      %Comment{content: "Comment 1"},
-      %Comment{content: "Comment 2"},
-    ]
   }
-  |> EctoXml.to_xml(:post)
+
+  embedded_schema do
+    field :title, :string
+    embeds_many :comments, Comment
+  end
+end
+
+defmodule Comment do
+  use Ecto.Schema
+
+  @primary_key false
+
+  embedded_schema do
+    field :content, :string
+  end
+end
+
+%Post{
+  title: "Foo Bar",
+  comments: [
+    %Comment{content: "Comment 1"},
+    %Comment{content: "Comment 2"},
+  ]
+}
+|> EctoXml.to_xml(:post)
 ```
 
 Results in:
