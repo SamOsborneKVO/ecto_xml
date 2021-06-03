@@ -87,7 +87,7 @@ Results in:
 </person>
 ```
 
-## Using Ecto Schemas
+### Using Ecto Schemas
 
 We can also use any ecto schema (embedded or not) to generate our XML documents.
 
@@ -114,7 +114,7 @@ Results in:
 </person>
 ```
 
-## Customizing element names
+### Customizing element names
 
 We can change any element name for the ecto schema being serialized by deriving from the `EctoXml.Builder` protocol.
 
@@ -186,7 +186,7 @@ Results in:
 </post>
 ```
 
-## Customizing element values
+### Customizing element values
 
 We can use the `EctoXml.ValueResolver` protocol to customize and resolve the value for any element type.
 
