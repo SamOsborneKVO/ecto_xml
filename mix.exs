@@ -1,6 +1,8 @@
 defmodule EctoXml.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/pedro-lb/ecto_xml"
+
   def project do
     [
       app: :ecto_xml,
@@ -18,7 +20,8 @@ defmodule EctoXml.MixProject do
       ],
       description: description(),
       package: package(),
-      deps: deps()
+      deps: deps(),
+      docs: docs()
     ]
   end
 
@@ -34,6 +37,14 @@ defmodule EctoXml.MixProject do
       maintainers: ["Pedro Bini"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/pedro-lb/ecto_xml"}
+    ]
+  end
+
+  defp docs do
+    [
+      main: "readme",
+      source_url: @source_url,
+      extras: ["README.md"]
     ]
   end
 
