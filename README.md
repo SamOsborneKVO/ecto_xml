@@ -17,7 +17,7 @@ It supports converting all ecto schema properties to XML, such as `embeds_one`, 
 it also allows customizing name and value resolvers, giving you full control over your XML.
 
 Under the hood it uses [Joshua Nussbaum](https://github.com/joshnuss) amazing work on [xml_builder](https://github.com/joshnuss/xml_builder),
-so the idea here is to remove complexity and drying the process of generating XML based on maps and ecto schemas.
+so the idea here is to remove complexity and DRY the process of generating XML based on maps and ecto schemas.
 
 Check the examples below to see some code and get started!
 
