@@ -1,7 +1,7 @@
 EctoXml
 ===========
 
-[![CI](https://github.com/pedro-lb/ecto_xml/workflows/mix/badge.svg)](https://github.com/pedro-lb/ecto_xml/actions)
+[![CI](https://github.com/pedro-lb/ecto_xml/workflows/build_and_test/badge.svg)](https://github.com/pedro-lb/ecto_xml/actions)
 [![Module Version](https://img.shields.io/hexpm/v/ecto_xml.svg)](https://hex.pm/packages/ecto_xml)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/ecto_xml/)
 [![Total Download](https://img.shields.io/hexpm/dt/ecto_xml.svg)](https://hex.pm/packages/ecto_xml)
