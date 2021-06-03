@@ -6,6 +6,7 @@ defmodule EctoXml.MixProject do
       app: :ecto_xml,
       version: "0.1.0",
       elixir: "~> 1.12",
+      build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       consolidate_protocols: Mix.env() != :test,
       test_coverage: [tool: ExCoveralls],
