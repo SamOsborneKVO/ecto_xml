@@ -50,6 +50,7 @@ defmodule EctoXml.MixProject do
       # Dev & Test
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:phoenix_ecto, "~> 4.1", only: [:dev, :test]},
+      {:ex_doc, "~> 0.24.2", only: :dev},
       # Test
       {:excoveralls, "~> 0.14.0", only: :test}
     ]
