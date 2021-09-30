@@ -23,7 +23,7 @@ Check the examples below to see some code and get started!
 
 ## Installation
 
-The package is [available in Hex](https://hex.pm/packages/xml_builder), and can be installed
+The package is [available in Hex](https://hex.pm/packages/ecto_xml), and can be installed
 by adding `ecto_xml` to your list of dependencies in `mix.exs`:
 
 ```elixir
