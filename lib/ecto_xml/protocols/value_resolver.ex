@@ -42,9 +42,3 @@ defimpl EctoXml.ValueResolver, for: DateTime do
     DateTime.to_string(value)
   end
 end
-
-defimpl EctoXml.ValueResolver, for: NaiveDateTime do
-  def resolve(value, _key, _base_module) do
-    NaiveDateTime.to_string(value)
-  end
-end

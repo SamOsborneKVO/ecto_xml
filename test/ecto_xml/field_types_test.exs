@@ -24,12 +24,6 @@ defmodule Test.FieldTypes do
       assert xml == "<foo>42</foo>"
     end
 
-    test "should convert: NaiveDateTime (using ISO8601)" do
-      xml = %{foo: ~N[2021-03-31 00:00:00]} |> EctoXml.to_partial_xml(format: :none)
-
-      assert xml == "<foo>2021-03-31 00:00:00</foo>"
-    end
-
     test "should convert: DateTime (using ISO8601)" do
       xml = %{foo: ~U[2015-01-23 23:50:07Z]} |> EctoXml.to_partial_xml(format: :none)
 
