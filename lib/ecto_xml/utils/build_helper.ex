@@ -36,11 +36,26 @@ defmodule EctoXml.BuildHelper do
     element_value = ValueResolver.resolve(value, key, base_module)
 
     element_name =
-      case Kernel.function_exported?(base_module, :resolve_element_name, 2) do
-        true -> apply(base_module, :resolve_element_name, [value, key])
-        false -> key
-      end
+      resolve_element_name(value, key)
 
     element(element_name, element_value)
   end
+
+  defp resolve_element_name(value, key) do
+    map_field_names = Application.get_env(:ecto_xml, :map_field_names)
+    map_array_names = Application.get_env(:ecto_xml, :map_array_names)
+
+        mapped_name =
+          case value do
+            _ when is_list(value) ->
+              unquote(Macro.escape(map_array_names))
+              |> Map.get(key)
+
+            _ ->
+              unquote(Macro.escape(map_field_names))
+              |> Map.get(key)
+          end
+
+        mapped_name || key
+      end
 end
