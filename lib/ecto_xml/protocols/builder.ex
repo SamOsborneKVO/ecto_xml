@@ -12,9 +12,9 @@ defprotocol EctoXml.Builder do
 end
 
 defimpl EctoXml.Builder, for: Any do
-  defmacro __deriving__(_module, _struct, options) do
-    map_field_names = Keyword.get(options, :map_field_names, %{})
-    map_array_names = Keyword.get(options, :map_array_names, %{})
+  defmacro __deriving__(_module, _struct, _options) do
+    map_field_names = Application.get_env(:ecto_xml, :map_field_names)
+    map_array_names = Application.get_env(:ecto_xml, :map_array_names)
 
     quote do
       def resolve_element_name(value, key) do
