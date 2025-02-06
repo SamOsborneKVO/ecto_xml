@@ -45,17 +45,17 @@ defmodule EctoXml.BuildHelper do
     map_field_names = Application.get_env(:ecto_xml, :map_field_names)
     map_array_names = Application.get_env(:ecto_xml, :map_array_names)
 
-        mapped_name =
-          case value do
-            _ when is_list(value) ->
-              unquote(Macro.escape(map_array_names))
-              |> Map.get(key)
+    mapped_name =
+      case value do
+        _ when is_list(value) ->
+          map_array_names
+          |> Map.get(key)
 
-            _ ->
-              unquote(Macro.escape(map_field_names))
-              |> Map.get(key)
-          end
-
-        mapped_name || key
+        _ ->
+          map_field_names
+          |> Map.get(key)
       end
+
+    mapped_name || key
+  end
 end
